@@ -1,0 +1,42 @@
+= render "layouts/header"
+.show-content
+  .show-content__topbox
+    .show-content__topbox__image
+      = image_tag "#{@subschool.image.url}", size: "250x250"
+    .show-content__topbox__detail
+      .show-content__topbox__detail__name
+        = @subschool.name
+      .show-content__topbox__detail__description
+        = @subschool.description
+      .show-content__tags
+        .show-content__tags__tag
+        .show-content__tags__star
+        .show-content__tags__like
+
+  .show-content__bottombox
+    .show-content__bottombox__title
+      Review
+    .show-review
+      .show-review__content
+        めちゃめちゃ面白い
+        .show-review__subcontent
+          .show-review__subcontent__name
+            user_name
+          .show-review__subcontent__star
+            ★
+
+  .show-content__endbox
+    .show-content__endbox__title
+      HOT TOPIC
+    .show-content__endbox__box
+      .show-tweet
+        .show-tweet__image
+        .show-tweet__name
+          kiyo
+          .show-tweet__detail
+            .show-tweet__detail__tweet
+              今日はツイートすっぞ！！！！！
+        .show-tweet__comment
+        .show-tweet__like
+
+
