@@ -1,3 +1,41 @@
-// Place all the styles related to the tweets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-tweet{
+  .main-tweet__box{
+    .tweet-show{
+      padding: 10px;
+      height: 80px;
+      border: 1px solid;
+      .tweet-show__image{
+
+      }
+      .tweet-show__name{
+
+      }
+        .tweet-show__tweet{
+
+          .tweet-show__date{
+
+          }
+        }
+      }
+    }
+  }
+
+  .comment-form{
+
+  }
+  .comment-box{
+    .comment-show{
+      padding: 10px;
+      height: 80px;
+      border: 1px solid;
+      .comment-show__image{
+
+      }
+      .comment-show__name{
+
+      }
+        .comment-content{
+
+        }
+      }
+    }

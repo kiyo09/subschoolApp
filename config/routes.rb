@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'subschools#top'
   resources :subschools, only: [:index, :show, :new, :create] do
     resources :reviews, only: :create
-    resources :tweets, only: :create    
+    resources :tweets, only: [:create, :show, :edit]    
   end
+  resources :comments, only: :create
 end
