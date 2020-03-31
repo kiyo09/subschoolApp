@@ -1,0 +1,12 @@
+= render "layouts/header"
+
+.subschool__form
+  = form_with model: @subschool, local: true do |f|
+    .form-image
+      = f.file_field :image, class: 'js-file',required: true
+    .form-name
+      = f.text_field :name, placeholder: "name", required: true
+    .form-description
+      = f.text_area :description, placeholder: "description", required: true
+    .check-button
+      = f.submit "登録する", class: "check-button"

@@ -1,0 +1,46 @@
+= render "layouts/header"
+.main
+  .main-content
+    - @subschools.each do |subschool|
+      = link_to subschool_path(subschool.id) do
+        .main-content__box
+          .main-content__box__image
+            = image_tag "#{subschool.image.url}", size: "120x120"
+          .main-content__box__sentence
+            .main-content__box__name
+              = subschool.name
+            .main-content__box__description
+              = subschool.description
+            .main-content__box__description__ex
+              .main-content__box__description__ex__tag
+                動画 配送サービス
+              .main-content__box__description__ex__star
+                ★
+          
+
+    -# .main-content__box
+    -#   .main-content__box__image
+    -#     = image_tag "/assets/subschool/amazon.png", size: "120x120"
+    -#   .main-content__box__sentence
+    -#     .main-content__box__name
+    -#       Amazon prime video
+    -#     .main-content__box__description
+    -#       動画配信サービス
+    -#     .main-content__box__description__ex
+    -#       .main-content__box__description__ex__tag
+    -#         動画 配送サービス
+    -#       .main-content__box__description__ex__star
+    -#         ★
+    -# .main-content__box
+    -#   .main-content__box__image
+    -#     = image_tag "/assets/subschool/Netflix_icon.png", size: "120x120"
+    -#   .main-content__box__sentence
+    -#     .main-content__box__name
+    -#       Netflix
+    -#     .main-content__box__description
+    -#       動画配信サービス
+    -#     .main-content__box__description__ex
+    -#       .main-content__box__description__ex__tag
+    -#         動画 配送サービス
+    -#       .main-content__box__description__ex__star
+    -#         ★
