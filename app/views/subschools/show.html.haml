@@ -16,14 +16,47 @@
   .show-content__bottombox
     .show-content__bottombox__title
       Review
-    .show-review
-      .show-review__content
-        めちゃめちゃ面白い
-        .show-review__subcontent
-          .show-review__subcontent__name
-            user_name
-          .show-review__subcontent__star
-            ★
+    - if @subschool.reviews.present?
+      .show-review
+        - @subschool.reviews.each do |review|
+          .show-review__content
+            = review.content
+            .show-review__subcontent
+              .show-review__subcontent__name
+                user_name
+              .show-review__subcontent__star
+                = review.rate
+            #star-rate{id: review.id}
+            :javascript
+              $('#star-rate_#{review.id}').raty({
+                size: 36,
+                starOff:  "#{asset_path('star-off.png')}",
+                starOn : "#{asset_path('star-on.png')}",
+                starHalf: "#{asset_path('star-half.png')}",
+                half: true,
+                readOnly: true,
+                score: #{review.rate},
+              });
+  
+
+
+  .review-form
+    = form_with( model: [@subschool, @review], local: true) do |f|
+      = f.hidden_field :subschool_id, value: @subschool.id 
+      = f.text_field :content
+      #star.form-group
+        = f.label :rate
+        = f.hidden_field :rate, id: :review_star
+      = f.submit 'レビューする', class: "submit-btn" 
+      :javascript
+        $('#star').raty({
+          size: 36,
+          starOff: "#{asset_path('star-off.png')}",
+          starOn: "#{asset_path('star-on.png')}",
+          starHalf: "#{asset_path('star-half.png')}",
+          scoreName: 'review[rate]',
+          half: true,
+        });
 
   .show-content__endbox
     .show-content__endbox__title
@@ -40,3 +73,4 @@
         .show-tweet__like
 
 
+  

@@ -19,6 +19,7 @@ class SubschoolsController < ApplicationController
 
   def show
     @subschool = Subschool.find(params[:id])
+    @review = Review.new
   end
 
   private
