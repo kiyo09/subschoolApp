@@ -20,6 +20,7 @@ class SubschoolsController < ApplicationController
   def show
     @subschool = Subschool.find(params[:id])
     @review = Review.new
+    @tweet = Tweet.new
   end
 
   private

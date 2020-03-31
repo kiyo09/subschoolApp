@@ -61,16 +61,24 @@
   .show-content__endbox
     .show-content__endbox__title
       HOT TOPIC
+    .show-tweet__form
+      = form_with(model: [@subschool, @tweet], local: true) do |tweet|
+        = tweet.hidden_field :subschool_id, value: @subschool.id 
+        = tweet.text_field :tweet
+        = tweet.submit '投稿する', class: "submit-btn" 
+
     .show-content__endbox__box
-      .show-tweet
-        .show-tweet__image
-        .show-tweet__name
-          kiyo
-          .show-tweet__detail
-            .show-tweet__detail__tweet
-              今日はツイートすっぞ！！！！！
-        .show-tweet__comment
-        .show-tweet__like
+      - @subschool.tweets.each do |tweet|
+        = link_to "/subschools/#{@subschool.id}/tweets/#{tweet.id}" do
+          .show-tweet
+            .show-tweet__image
+            .show-tweet__name
+              user_name
+              .show-tweet__detail
+                .show-tweet__detail__tweet
+                  = tweet.tweet
+          .show-tweet__comment
+          .show-tweet__like
 
 
   

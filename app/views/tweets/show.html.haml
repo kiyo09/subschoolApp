@@ -1,0 +1,27 @@
+= render "layouts/header"
+.main-tweet
+  .main-tweet__box
+    .tweet-show
+      .tweet-show__image
+      .tweet-show__name
+        user-name
+        .tweet-show__tweet
+          = @tweet.tweet
+          .tweet-show__date
+            = @tweet.created_at
+
+  .comment-form
+    = form_with(model: @comment, local: true) do |comment|
+      = comment.hidden_field :tweet_id, value: @tweet.id 
+      = comment.text_field :comment
+      = comment.submit "コメントする"
+
+  .comment-box
+    - @comments.each do |comment|
+      .comment-show
+        .comment-show__image
+        .comment-show__name
+          user-name
+          .comment-content
+            = comment.comment
+    
