@@ -27,8 +27,8 @@
               .show-review__subcontent__name
                 = review.user.nickname
               .show-review__subcontent__star
-                = review.rate
-            #star-rate{id: review.id}
+                %p= review.rate
+                #star-rate{id: review.id}
             :javascript
               $('#star-rate_#{review.id}').raty({
                 size: 36,

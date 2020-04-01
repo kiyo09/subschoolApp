@@ -12,8 +12,8 @@
             .main-content__box__description
               = subschool.description
             .main-content__box__description__ex
-              .main-content__box__description__ex__tag
-                - subschool.stags.each do |tags|
+              - subschool.stags.each do |tags|
+                .main-content__box__description__ex__tag
                   = tags.tag
               .main-content__box__description__ex__star
                 ★
