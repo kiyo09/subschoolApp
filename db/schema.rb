@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_073822) do
+ActiveRecord::Schema.define(version: 2020_04_01_074911) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "comment"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(version: 2020_03_31_073822) do
     t.text "content"
     t.float "rate"
     t.integer "subschool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "stag_id"
+    t.bigint "subschool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stag_id"], name: "index_stag_relations_on_stag_id"
+    t.index ["subschool_id"], name: "index_stag_relations_on_subschool_id"
+  end
+
+  create_table "stags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

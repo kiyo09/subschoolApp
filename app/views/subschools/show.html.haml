@@ -9,9 +9,11 @@
       .show-content__topbox__detail__description
         = @subschool.description
       .show-content__tags
-        .show-content__tags__tag
-        .show-content__tags__star
-        .show-content__tags__like
+        - @subschool.stags.each do |tag|
+          .show-content__tags__tag
+            = tag.tag
+          .show-content__tags__star
+          .show-content__tags__like
 
   .show-content__bottombox
     .show-content__bottombox__title

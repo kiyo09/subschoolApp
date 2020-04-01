@@ -13,7 +13,8 @@
               = subschool.description
             .main-content__box__description__ex
               .main-content__box__description__ex__tag
-                動画 配送サービス
+                - subschool.stags.each do |tags|
+                  = tags.tag
               .main-content__box__description__ex__star
                 ★
           
