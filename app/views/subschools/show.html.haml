@@ -25,7 +25,7 @@
             = review.content
             .show-review__subcontent
               .show-review__subcontent__name
-                user_name
+                = review.user.nickname
               .show-review__subcontent__star
                 = review.rate
             #star-rate{id: review.id}
@@ -75,7 +75,7 @@
           .show-tweet
             .show-tweet__image
             .show-tweet__name
-              user_name
+              = tweet.user.nickname
               .show-tweet__detail
                 .show-tweet__detail__tweet
                   = tweet.tweet
