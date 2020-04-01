@@ -4,7 +4,7 @@
     .tweet-show
       .tweet-show__image
       .tweet-show__name
-        user-name
+        = @tweet.user.nickname
         .tweet-show__tweet
           = @tweet.tweet
           .tweet-show__date
@@ -21,7 +21,7 @@
       .comment-show
         .comment-show__image
         .comment-show__name
-          user-name
+          = comment.user.nickname
           .comment-content
             = comment.comment
     

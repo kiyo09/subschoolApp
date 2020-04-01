@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :content
       t.float :rate
       t.integer :subschool_id
+      t.integer :user_id
       t.timestamps
     end
   end
