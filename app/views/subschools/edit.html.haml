@@ -8,7 +8,9 @@
       = f.text_field :name, placeholder: "name", required: true
     .form-description
       = f.text_area :description, placeholder: "description", required: true
-      .form-tag
-      = f.collection_check_boxes :stag_ids, Stag.all, :id,:tag
+    .form-tag
+      = f.fields_for :subsc_tag_relations do |tag|
+        = tag.collection_check_boxes :subsctag_id, @tag, :id,:tag
+        = tag.hidden_field :subschool_id, value: @subschool.id 
     .check-button
       = f.submit "登録する", class: "check-button"
