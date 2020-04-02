@@ -1,0 +1,156 @@
+.mypage{
+  .mypage-main{
+    padding: 30px 60px;
+    .mypage-main-box{
+      .mypage-main-box__name{
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 40px;
+      }
+      .mypage-main-box__content{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        .mypage-main-box__content__image{
+          img{
+            border-radius: 60px;
+          }
+          .mypage-main-box__content__name{
+            font-size: 40px;
+            text-align: center;
+          }
+        }
+        .mypage-main-box__content__edit{
+          font-size: 30px;
+          margin: 10px;
+          border-radius: 5px;
+          background-color: #ffde3bd6;
+          position: relative;
+          display: inline-block;
+          height: 60px;
+          line-height: 60px;
+          padding: 0 1em 0 .75em;
+          border-radius: 30px;
+        }
+      }
+      .mypage-main-box__intro{
+        margin-top: 20px;
+        font-size: 30px;
+        height: 150px;
+      }
+    }
+    .mypage-main__subschool{
+      .mypage-main__subschool__name{
+      }
+     }
+    .mypage-main__tweet{
+      margin: 40px 0;
+      p{
+        font-size: 30px;
+      }
+      &Box{
+        font-size: 20px;
+        margin-top: 20px;
+        .mypage-main__tweetBox__content{
+          display: flex;
+          margin-bottom: 20px;
+          .mypage-main__tweetBox__content__image{
+            img{
+              margin-right: 20px;
+            }
+          }
+          .mypage-main__tweetBox__content__name{
+            
+            .mypage-main__mail__tweetBox__detail{
+
+            }
+            .mypage-main__mail__tweetBox__detailDate{
+
+            }
+          }
+        }
+      }
+    }
+    .mypage-main__review{
+      margin: 40px 0;
+      p{
+        font-size: 30px;
+      }
+      .mypage-main__reviewBox{
+        font-size: 20px;
+        margin-top: 20px;
+        .mypage-main__reviewBox__content{
+          display: flex;
+          margin-bottom: 20px;
+        .mypage-main__reviewBox__content__image{
+          img{
+            margin-right: 20px;
+          }
+        }
+        .mypage-main__reviewBox__content__name{
+
+          .mypage-main__reviewBox__content__detail{
+
+          }
+          .mypage-main__reviewBox__content__detailDate{
+
+          }
+        }
+      }
+      }
+    }
+  }
+}
+
+#edit-wrapper{
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  position: absolute;
+  display: none;
+  background-color: rgba(192, 192, 192, 0.2);
+  #edit-modal{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 50vw;
+    height: 50vh;
+    z-index: 100;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    .edit-modal__image{
+      input{
+        width: 100%;
+      }
+    }
+    .edit-modal__nickname{
+      input{
+        color: black;
+        width: 100%;
+      }
+    }
+    .edit-modal__intro{
+      textarea{
+        color: black;
+        width: 100%;
+      }
+    }
+    .edit-modal__button{
+      text-align: center;
+      input{
+        color: white;
+        font-size: 30px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #ffde3bd6;
+        position: relative;
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 1em 0 .75em;
+        border-radius: 30px;
+      }
+    }
+  }
+}

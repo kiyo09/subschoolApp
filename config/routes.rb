@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :tweets, only: [:create, :show, :edit]    
   end
   resources :comments, only: :create
+  resources :users, only: [:show, :edit, :update]
+
 end

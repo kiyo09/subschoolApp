@@ -1,0 +1,81 @@
+= render "layouts/header"
+.mypage
+  .mypage-main
+    .mypage-main-box
+      .mypage-main-box__name
+        = "#{@user.nickname}さんのマイページ"
+      .mypage-main-box__content
+        .mypage-main-box__content__image
+          - if @user.image.present?
+            = image_tag "#{@user.image.url}", size: "120x120"
+          - else
+            = form_with model: @user,method: :patch, local: true do |image|
+              = image.hidden_field :user_id, value: current_user.id
+              .mypage-imageForm
+                = image.file_field :image
+              .mypage-submitButton
+                = image.submit '画像を入れる', class: "submit-btn" 
+          .mypage-main-box__content__name
+            = @user.nickname
+        .mypage-main-box__content__edit
+          - if @user.id == current_user.id
+            #mypage-edit プロフィールを編集
+          - else
+            = link_to "messageを送る" 
+      .mypage-main-box__intro
+        = @user.intro
+    .mypage-main__subschool
+      .mypage-main__subschool__name
+    .mypage-main__tweet
+      %p 最新のツイート
+      - if @user.tweets.present?
+        .mypage-main__tweetBox
+          - @tweets.each do |tweet|
+            .mypage-main__tweetBox__content
+              .mypage-main__tweetBox__content__image
+                = image_tag "#{tweet.subschool.image.url}"
+              .mypage-main__tweetBox__content__name
+                = tweet.subschool.name
+                .mypage-main__tweetBox__content__detail
+                  = tweet.tweet
+                .mypage-main__tweetBox__content__detailDate
+                  = tweet.created_at
+      - else
+        サブスクについてつぶやこう！
+
+    .mypage-main__review
+      %P 最新のレビュー
+      - if @user.reviews.present?
+        .mypage-main__reviewBox
+          - @reviews.each do |review|
+            .mypage-main__reviewBox__content
+              .mypage-main__reviewBox__content__image
+                = image_tag "#{review.subschool.image.url}"
+              .mypage-main__reviewBox__content__name
+                = review.subschool.name
+                .mypage-main__reviewBox__content__detail
+                  = review.content
+                .mypage-main__reviewBox__content__detailDate
+                  = review.created_at
+      - else
+        サブスクを探してみよう！
+    .mypage-main__mail
+
+
+
+
+
+
+#edit-wrapper
+  #edit-modal
+    = form_with model: @user , local: true do |form|
+      .edit-modal__image
+        = form.file_field :image
+      .edit-modal__nickname
+        名前
+        = form.text_field :nickname
+      .edit-modal__intro
+        自己紹介
+        = form.text_area :intro, cols: 20, rows: 5,  wrap: "hard"
+      .edit-modal__button
+        = form.submit "編集する"

@@ -6,6 +6,22 @@
     .show-content__topbox__detail
       .show-content__topbox__detail__name
         = @subschool.name
+      .show-content__topbox__detail__review
+      - if @subschool.reviews.count > 1
+        #star-average{id: @subschool.id}
+        .show-content__topbox__detail__reviewRate
+          = @subschool.reviews.average(:rate).to_f.round(1)
+        .show-content__topbox__detail__reviewCount
+          = "#{@subschool.reviews.count} reviews"
+      - elsif (@subschool.reviews.count === 1)
+        #star-average{id: @subschool.id}
+        .show-content__topbox__detail__reviewRate
+          = @subschool.reviews.average(:rate).to_f.round(1)
+        .show-content__topbox__detail__reviewCount
+          = "#{@subschool.reviews.count} review"
+      - else
+        .show-content__topbox__detail__reviewComent
+          = "まだレビューがありません"
       .show-content__topbox__detail__description
         = @subschool.description
       .show-content__tags
@@ -14,6 +30,16 @@
             = tag.tag
           .show-content__tags__star
           .show-content__tags__like
+          :javascript
+            $('#star-average_#{@subschool.id}').raty({
+              size: 36,
+              starOff: "#{asset_path('star-off.png')}",
+              starOn: "#{asset_path('star-on.png')}",
+              starHalf: "#{asset_path('star-half.png')}",
+              half: true,
+              readOnly: true,
+              score: #{@subschool.reviews.average(:rate).to_f.round(1)},
+            });
 
   .show-content__bottombox
     .show-content__bottombox__title
@@ -24,11 +50,14 @@
           .show-review__content
             = review.content
             .show-review__subcontent
+              .show-review__subcontent__image
+                = image_tag "#{review.user.image}", size: "50x50"
               .show-review__subcontent__name
                 = review.user.nickname
               .show-review__subcontent__star
-                = review.rate
-            #star-rate{id: review.id}
+                %p= review.rate
+                #star-rate
+                  #star-rate{id: review.id}
             :javascript
               $('#star-rate_#{review.id}').raty({
                 size: 36,
@@ -74,6 +103,7 @@
         = link_to "/subschools/#{@subschool.id}/tweets/#{tweet.id}" do
           .show-tweet
             .show-tweet__image
+              = image_tag "#{tweet.user.image}", size: "50x50"
             .show-tweet__name
               = tweet.user.nickname
               .show-tweet__detail
