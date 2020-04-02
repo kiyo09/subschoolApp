@@ -50,11 +50,14 @@
           .show-review__content
             = review.content
             .show-review__subcontent
+              .show-review__subcontent__image
+                = image_tag "#{review.user.image}", size: "50x50"
               .show-review__subcontent__name
                 = review.user.nickname
               .show-review__subcontent__star
                 %p= review.rate
-                #star-rate{id: review.id}
+                #star-rate
+                  #star-rate{id: review.id}
             :javascript
               $('#star-rate_#{review.id}').raty({
                 size: 36,
@@ -100,6 +103,7 @@
         = link_to "/subschools/#{@subschool.id}/tweets/#{tweet.id}" do
           .show-tweet
             .show-tweet__image
+              = image_tag "#{tweet.user.image}", size: "50x50"
             .show-tweet__name
               = tweet.user.nickname
               .show-tweet__detail

@@ -57,7 +57,7 @@ input{
       padding-left: 40px;
       display: flex;
       .main-content__box__image{
-        margin-right: 20px;
+        margin-right: 40px;
         img{
           border-radius: 8px;
         }
@@ -72,6 +72,9 @@ input{
         }
         .main-content__box__reviewCount{
           text-align: center;
+        }
+        .main-content__reviewComment{
+          width: 120px;
         }
       }
       .main-content__box__sentence{
@@ -187,6 +190,11 @@ input{
             flex-direction: row-reverse;
             p{
               margin: 0px 10px;
+            }
+            #star-rate{
+              width: 110px;
+              height: 20px;
+              overflow: hidden;
             }
           }
         }

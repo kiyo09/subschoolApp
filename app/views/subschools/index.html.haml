@@ -21,7 +21,7 @@
               .main-content__box__reviewCount
                 = "#{subschool.reviews.count} review"
             - else
-              .main-content__reviewComent
+              .main-content__reviewComment
                 = "まだレビューがありません"
           .main-content__box__sentence
             .main-content__box__name
@@ -32,8 +32,6 @@
               - subschool.stags.each do |tags|
                 .main-content__box__description__ex__tag
                   = tags.tag
-              .main-content__box__description__ex__star
-                ★
               :javascript
                 $('#star-average_#{subschool.id}').raty({
                   size: 36,
