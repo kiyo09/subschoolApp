@@ -70,7 +70,10 @@
   #edit-modal
     = form_with model: @user , local: true do |form|
       .edit-modal__image
-        = form.file_field :image
+        = image_tag "#{@user.image.url}", size: "120x120", id: :img_prev 
+        %i.fa.fa-camera
+        .edit-modal__imageForm
+          = form.file_field :image, id: :user_img 
       .edit-modal__nickname
         名前
         = form.text_field :nickname
