@@ -39,7 +39,7 @@
                 .mypage-main__tweetBox__content__detail
                   = tweet.tweet
                 .mypage-main__tweetBox__content__detailDate
-                  = tweet.created_at
+                  = date_format(tweet.created_at)
       - else
         サブスクについてつぶやこう！
 
@@ -56,7 +56,7 @@
                 .mypage-main__reviewBox__content__detail
                   = review.content
                 .mypage-main__reviewBox__content__detailDate
-                  = review.created_at
+                  = date_format(review.created_at)
       - else
         サブスクを探してみよう！
     .mypage-main__mail
