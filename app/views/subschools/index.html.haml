@@ -6,6 +6,23 @@
         .main-content__box
           .main-content__box__image
             = image_tag "#{subschool.image.url}", size: "120x120"
+            - if subschool.reviews.count > 1
+              .main-content__box__review
+                #star-average{id: subschool.id}
+              .main-content__box__reviewRate
+                = subschool.reviews.average(:rate).to_f.round(1)
+                .main-content__box__reviewCount
+                  = "#{subschool.reviews.count} reviews"
+            - elsif (subschool.reviews.count === 1)
+              .main-content__box__review
+                #star-average{id: subschool.id}
+              .main-content__box__reviewRate
+                = subschool.reviews.average(:rate).to_f.round(1)
+              .main-content__box__reviewCount
+                = "#{subschool.reviews.count} review"
+            - else
+              .main-content__reviewComent
+                = "まだレビューがありません"
           .main-content__box__sentence
             .main-content__box__name
               = subschool.name
@@ -17,31 +34,13 @@
                   = tags.tag
               .main-content__box__description__ex__star
                 ★
-          
-
-    -# .main-content__box
-    -#   .main-content__box__image
-    -#     = image_tag "/assets/subschool/amazon.png", size: "120x120"
-    -#   .main-content__box__sentence
-    -#     .main-content__box__name
-    -#       Amazon prime video
-    -#     .main-content__box__description
-    -#       動画配信サービス
-    -#     .main-content__box__description__ex
-    -#       .main-content__box__description__ex__tag
-    -#         動画 配送サービス
-    -#       .main-content__box__description__ex__star
-    -#         ★
-    -# .main-content__box
-    -#   .main-content__box__image
-    -#     = image_tag "/assets/subschool/Netflix_icon.png", size: "120x120"
-    -#   .main-content__box__sentence
-    -#     .main-content__box__name
-    -#       Netflix
-    -#     .main-content__box__description
-    -#       動画配信サービス
-    -#     .main-content__box__description__ex
-    -#       .main-content__box__description__ex__tag
-    -#         動画 配送サービス
-    -#       .main-content__box__description__ex__star
-    -#         ★
+              :javascript
+                $('#star-average_#{subschool.id}').raty({
+                  size: 36,
+                  starOff: "#{asset_path('star-off.png')}",
+                  starOn: "#{asset_path('star-on.png')}",
+                  starHalf: "#{asset_path('star-half.png')}",
+                  half: true,
+                  readOnly: true,
+                  score: #{subschool.reviews.average(:rate).to_f.round(1)},
+                });

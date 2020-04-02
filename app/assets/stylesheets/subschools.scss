@@ -61,6 +61,18 @@ input{
         img{
           border-radius: 8px;
         }
+        .main-content__box__review{
+          height: 20px;
+          width: 110px;
+          overflow: hidden;
+          text-align: center;
+        }
+        .main-content__box__reviewRate{
+          text-align: center;
+        }
+        .main-content__box__reviewCount{
+          text-align: center;
+        }
       }
       .main-content__box__sentence{
         width: 100%;
@@ -112,6 +124,14 @@ input{
 
       .show-content__topbox__detail__name{
         font-size: 45px;
+      }
+      .show-content__topbox__detail__review{
+        display: flex;
+        .show-content__topbox__detail__reviewRate{
+          margin-left: 10px;
+          margin-right: 20px;
+
+        }
       }
       .show-content__topbox__detail__description{
         font-size: 30px;
