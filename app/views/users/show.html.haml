@@ -39,7 +39,7 @@
                 .mypage-main__tweetBox__content__detail
                   = tweet.tweet
                 .mypage-main__tweetBox__content__detailDate
-                  = tweet.created_at
+                  = date_format(tweet.created_at)
       - else
         サブスクについてつぶやこう！
 
@@ -56,7 +56,7 @@
                 .mypage-main__reviewBox__content__detail
                   = review.content
                 .mypage-main__reviewBox__content__detailDate
-                  = review.created_at
+                  = date_format(review.created_at)
       - else
         サブスクを探してみよう！
     .mypage-main__mail
@@ -70,7 +70,10 @@
   #edit-modal
     = form_with model: @user , local: true do |form|
       .edit-modal__image
-        = form.file_field :image
+        = image_tag "#{@user.image.url}", size: "120x120", id: :img_prev 
+        %i.fa.fa-camera
+        .edit-modal__imageForm
+          = form.file_field :image, id: :user_img 
       .edit-modal__nickname
         名前
         = form.text_field :nickname
