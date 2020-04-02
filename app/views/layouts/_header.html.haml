@@ -1,10 +1,16 @@
 .header
   .header-name
-    = link_to "subschool", root_path
+    = link_to "subschool", subschools_path
   .header-leftbox
     検索フォーム
   .header-rightbox
-    .header-rightbox__registar
-      = link_to "新規登録", new_user_registration_path
-    .header-rightbox__login
-      = link_to "ログイン", user_session_path
+    - if user_signed_in?
+      .header-rightbox__registar
+        = link_to "マイページ", "/users/#{current_user.id}"
+      .header-rightbox__login
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    - else
+      .header-rightbox__registar
+        = link_to "新規登録", new_user_registration_path
+      .header-rightbox__login
+        = link_to "ログイン", user_session_path
