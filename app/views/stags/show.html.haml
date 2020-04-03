@@ -1,0 +1,52 @@
+= render "layouts/header"
+
+.main-stag
+  .main-stag__name
+    = @stag.tag
+  .main-stag__content
+  .main-stag__content__text
+    - @stag.stag_relations.each do |stag|
+      .main-stag__content__box
+        = link_to subschool_path(stag.subschool.id) do
+          .main-stag__content__boxTop
+            .main-stag__content__boxTop__image
+              = image_tag "#{stag.subschool.image.url}", size: "150x150"
+            .main-stag__content__boxTop__name
+              = stag.subschool.name
+          - if stag.subschool.reviews.count > 1
+            .main-stag__content__boxTop__review
+              .main-stag__content__boxTop__reviewImage
+                #star-average{id: stag.subschool.id}
+              .main-stag__content__boxTop__reviewRate
+                = stag.subschool.reviews.average(:rate).to_f.round(1)
+              .main-stag__content__boxTop__reviewCount
+                = "#{stag.subschool.reviews.count} reviews"
+          - elsif (stag.subschool.reviews.count === 1)
+            .main-stag__content__boxTop__review
+              .main-stag__content__boxTop__reviewImage
+                #star-average{id: stag.subschool.id}
+              .main-stag__content__boxTop__reviewRate
+                = stag.subschool.reviews.average(:rate).to_f.round(1)
+              .main-stag__content__boxTop__reviewCount
+                = "#{stag.subschool.reviews.count} review"
+          - else
+            .main-stag__content__reviewComment
+              = "まだレビューがありません"
+          .main-stag__content__box__sentence
+            .main-stag__content__box__description
+              = stag.subschool.description
+            .main-stag__content__box__description__ex
+              - stag.subschool.stags.each do |tags|
+                .main-stag__content__box__description__ex__tag
+                  = link_to stag_path(tags.id) do
+                    = tags.tag
+              :javascript
+                $('#star-average_#{stag.subschool.id}').raty({
+                  size: 36,
+                  starOff: "#{asset_path('star-off.png')}",
+                  starOn: "#{asset_path('star-on.png')}",
+                  starHalf: "#{asset_path('star-half.png')}",
+                  half: true,
+                  readOnly: true,
+                  score: #{stag.subschool.reviews.average(:rate).to_f.round(1)},
+                });
