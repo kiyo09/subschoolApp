@@ -6,6 +6,9 @@ class SubschoolsController < ApplicationController
 
   def index
     @subschools = Subschool.all
+    historys = []
+    historys = cookies[:recently_viewed_items].split(",") unless cookies[:recently_viewed_items].nil?
+    @history = Subschool.where(id: historys)
   end
 
   def new
