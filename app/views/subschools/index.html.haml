@@ -1,6 +1,23 @@
 = render "layouts/header"
 .main
+  .main-history
+    - if @history.present? 
+      .main-history__text
+        最近見たサービス
+      .main-history__boxs
+        - @history.each do |it|
+          .main-history__box
+            = link_to subschool_path(it.id) do
+              .main-history__box__image
+                = image_tag it.image.url, size: "300x300"
+              .main-history__box__name
+                = it.name
+
+
+
   .main-content
+    .main-content__text
+      サービス一覧
     - @subschools.each do |subschool|
       = link_to subschool_path(subschool.id) do
         .main-content__box
@@ -42,3 +59,13 @@
                   readOnly: true,
                   score: #{subschool.reviews.average(:rate).to_f.round(1)},
                 });
+
+-# - items = []
+-# - items = cookies[:recently_viewed_items].split(",") unless cookies[:recently_viewed_items].nil?
+-# - items.each do |id|
+-#   = item = Subschool.find(id)
+
+
+-# - history = Subschool.where(id: items.id)
+-# = history.name
+

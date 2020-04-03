@@ -111,6 +111,8 @@
                   = tweet.tweet
           .show-tweet__comment
           .show-tweet__like
+    .mypage-main__mail
+      = @recently_visit
 
-
-  
+  %input{name: "subschool_id", type: "hidden", value: @subschool.id, class: 'subschool_id' }
+  %input{name: "subschool_name", type: "hidden", value: @subschool.name, class: 'subschool_name' }
