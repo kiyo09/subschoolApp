@@ -68,3 +68,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem "font-awesome-sass"
+gem 'js_cookie_rails'
