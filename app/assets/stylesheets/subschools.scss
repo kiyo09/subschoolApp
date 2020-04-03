@@ -16,7 +16,7 @@ input{
 }
 
 .header{
-  height: 100px;
+  height: 120px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -47,10 +47,45 @@ input{
 .main{
   width: 100vw;
   height: 100%;
+  &-history{
+    &__text{
+      font-size: 40px;
+    }
+    .main-history__boxs{
+    display: flex;
+    // flex-direction: row-reverse;
+    overflow-x: scroll;
+    margin: 30px 0;
+    .main-history__box{
+      margin-left: 20px;
+      .main-history__box__image{
+
+      }
+      .main-history__box__name{
+        text-align: center;
+        font-size: 30px;
+      }
+    }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
   .main-content{
     display: block;
     margin: 0 auto;
     height: 100%;
+    &__text{
+      font-size: 40px;
+    }
     .main-content__box{
       margin: 60px 100px;
       height: 20%;
