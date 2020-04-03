@@ -13,8 +13,6 @@
               .main-history__box__name
                 = it.name
 
-
-
   .main-content
     .main-content__text
       サービス一覧
@@ -48,7 +46,8 @@
             .main-content__box__description__ex
               - subschool.stags.each do |tags|
                 .main-content__box__description__ex__tag
-                  = tags.tag
+                  = link_to stag_path(tags.id) do
+                    = tags.tag
               :javascript
                 $('#star-average_#{subschool.id}').raty({
                   size: 36,
