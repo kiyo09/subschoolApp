@@ -17,12 +17,23 @@ $(function(){
       viewed_items.push(item);
       }
     }
-    // else if($.inArray(item, viewed_items) == 1)
-    // {
-    //   viewed_items.slice(item, 1);
-    //   // viewed_items.push(item);
+    else{
+      var idx = $.inArray(item, viewed_items)
+      $.inArray(item, viewed_items)
+      viewed_items.splice(idx, 1);
+      viewed_items.push(item);
+    }
 
-    //   }
+
+    // $.inArray(検索文字列, 配列)
+    // var arr = ["aaa","bbb","ccc"];
+    // var idx = $.inArray("bbb", arr);
+    // if(idx >= 0){
+    //  arr.splice(idx, 1); 
+    // }
+
+    // arr : ["aaa","ccc"]
+
 
     // 5個以上ならば1つ削除
     if (viewed_items.length >= 5){

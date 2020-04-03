@@ -3,6 +3,8 @@
     = link_to "subschool", subschools_path
   .header-leftbox
     検索フォーム
+  .header-leftbox__tag
+    = link_to "タグ検索", stags_path
   .header-rightbox
     - if user_signed_in?
       .header-rightbox__registar

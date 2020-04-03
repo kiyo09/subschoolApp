@@ -27,7 +27,8 @@
       .show-content__tags
         - @subschool.stags.each do |tag|
           .show-content__tags__tag
-            = tag.tag
+            = link_to stag_path(tag.id) do
+              = tag.tag
           .show-content__tags__star
           .show-content__tags__like
           :javascript
