@@ -1,0 +1,9 @@
+= render "layouts/header"
+.header-leftbox__form__content
+  - @searches.each do |subschool|
+    = subschool.name
+  - @tweetSearch.each do |tweet|
+    = tweet.tweet
+  - @reviewSearch.each do |review|
+    = review.content
+  
