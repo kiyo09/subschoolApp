@@ -18,6 +18,7 @@ input{
 .header{
   height: 120px;
   width: 100%;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   .header-name{
@@ -25,6 +26,9 @@ input{
     line-height: 120px;
     text-align: center;
     text-decoration: none;
+    img{
+      width: 250px;
+    }
     }
   .header-leftbox{
     width: 20%;
