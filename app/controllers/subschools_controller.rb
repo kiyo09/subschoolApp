@@ -45,6 +45,12 @@ class SubschoolsController < ApplicationController
     Subschool.destroy
   end
 
+  def search
+    @searches = Subschool.search(params[:keyword])
+    @tweetSearch = Tweet.search(params[:keyword])
+    @reviewSearch = Review.search(params[:keyword])
+  end
+
   private
     def subschool_params
       params.require(:subschool).permit(:name, :description, :image, stag_ids: [])

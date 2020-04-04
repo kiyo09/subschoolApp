@@ -35,8 +35,8 @@ $(function(){
     // arr : ["aaa","ccc"]
 
 
-    // 5個以上ならば1つ削除
-    if (viewed_items.length >= 5){
+    // ８個以上ならば1つ削除
+    if (viewed_items.length >= 8){
       viewed_items.shift();
     }
 

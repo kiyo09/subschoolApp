@@ -1,8 +1,15 @@
 = render "layouts/header"
 .stag-index
-  タグ一覧
+  ジャンル一覧
   .stag-index__box
     - @stags.each do |stag|
+      .stag-index__box__name
+        = link_to stag_path(stag.id) do
+          = stag.tag
+.stag-index__tag
+  タグ一覧
+  .stag-index__box
+    - @stagsType.each do |stag|
       .stag-index__box__name
         = link_to stag_path(stag.id) do
           = stag.tag

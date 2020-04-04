@@ -1,13 +1,30 @@
 .stag-index{
   padding: 30px 60px;
   font-size: 40px;
-  
   .stag-index__box{
     .stag-index__box__name{
       font-size: 30px;
       margin: 10px;
       border-radius: 5px;
-      background-color: #ffde3bd6;
+      background-color: #f0d84d;
+      position: relative;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 1em 0 .75em;
+      border-radius: 30px;
+    }
+  }
+}
+.stag-index__tag{
+  padding: 30px 60px;
+  font-size: 40px;
+  .stag-index__box{
+    .stag-index__box__name{
+      font-size: 30px;
+      margin: 10px;
+      border-radius: 5px;
+      background-color: #f0d84d;
       position: relative;
       display: inline-block;
       height: 40px;

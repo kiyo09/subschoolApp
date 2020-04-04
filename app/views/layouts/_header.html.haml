@@ -1,8 +1,12 @@
 .header
   .header-name
-    = link_to "subschool", subschools_path
+    = link_to image_tag("/subschools/mainIcon.jpeg"), subschools_path
   .header-leftbox
-    検索フォーム
+    .header-leftbox__form
+      = form_with(url: search_subschools_path, local:true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "検索する", class: "search-input"
+        = form.submit "検索", class: "search-btn"
+
   .header-leftbox__tag
     = link_to "タグ検索", stags_path
   .header-rightbox
