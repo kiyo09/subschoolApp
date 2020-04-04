@@ -1,7 +1,8 @@
 class StagsController < ApplicationController
   
   def index
-    @stags = Stag.all
+    @stags = Stag.where("id < ?", 12)
+    @stagsType = Stag.where("id > ?", 11)
   end
 
   def show
