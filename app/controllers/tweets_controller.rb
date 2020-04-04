@@ -16,6 +16,7 @@ class TweetsController < ApplicationController
     redirect_to "/subschools/#{(tweet.subschool_id)}"
   end 
 
+  
   private
     def tweet_params
       params.require(:tweet).permit(:tweet).merge(subschool_id: params[:subschool_id], user_id: current_user.id)
