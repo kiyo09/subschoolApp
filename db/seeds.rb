@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# タグジャンル
+# タグジャンル 1~11
 Stag.create(tag: "飲食")
 Stag.create(tag: "音楽")
 Stag.create(tag: "動画")
@@ -20,7 +20,7 @@ Stag.create(tag: "美容室")
 Stag.create(tag: "おもちゃ")
 Stag.create(tag: "その他")
 
-# タグタイプ
+# タグタイプ 12~16
 Stag.create(tag: "家でも楽しめる")
 Stag.create(tag: "外で楽しめる")
 Stag.create(tag: "子どもも楽しめる")
@@ -103,6 +103,174 @@ StagRelation.create(
 StagRelation.create(
   stag_id: 16,
   subschool_id: 4,
+  )
+
+# ここから続き
+Subschool.create(
+  name: "Kindle Unlimited",
+  image:File.open("public/subschools/Kindle.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 4,
+  subschool_id: 5,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 5,
+  )
+StagRelation.create(
+  stag_id: 15,
+  subschool_id: 5,
+  )
+StagRelation.create(
+  stag_id: 16,
+  subschool_id: 5,
+  )
+
+Subschool.create(
+  name: "dマガジン",
+  image:File.open("public/subschools/dmagazin.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 4,
+  subschool_id: 6,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 6,
+  )
+StagRelation.create(
+  stag_id: 15,
+  subschool_id: 6,
+  )
+StagRelation.create(
+  stag_id: 16,
+  subschool_id: 6,
+  )
+
+Subschool.create(
+  name: "楽天マガジン",
+  image:File.open("public/subschools/Rmagazin.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 4,
+  subschool_id: 7,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 7,
+  )
+StagRelation.create(
+  stag_id: 15,
+  subschool_id: 7,
+  )
+StagRelation.create(
+  stag_id: 16,
+  subschool_id: 7,
+  )
+
+Subschool.create(
+  name: "Nintendo Switch Online",
+  image:File.open("public/subschools/Nintendo.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 5,
+  subschool_id: 8,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 8,
+  )
+StagRelation.create(
+  stag_id: 14,
+  subschool_id: 8,
+  )
+StagRelation.create(
+  stag_id: 15,
+  subschool_id: 8,
+  )
+
+Subschool.create(
+  name: "always LUNCH",
+  image:File.open("public/subschools/LUNCH.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 1,
+  subschool_id: 9,
+  )
+StagRelation.create(
+  stag_id: 13,
+  subschool_id: 9,
+  )
+
+
+Subschool.create(
+  name: "ゼロcafe",
+  image:File.open("public/subschools/zerocafe.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 1,
+  subschool_id: 10,
+  )
+StagRelation.create(
+  stag_id: 13,
+  subschool_id: 10,
+  )
+
+Subschool.create(
+  name: "野郎ラーメン",
+  image:File.open("public/subschools/野郎ラーメン.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 1,
+  subschool_id: 11,
+  )
+StagRelation.create(
+  stag_id: 13,
+  subschool_id: 11,
+  )
+
+Subschool.create(
+  name: "MECHAKARI",
+  image:File.open("public/subschools/metyakari.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 8,
+  subschool_id: 12,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 12,
+  )
+
+Subschool.create(
+  name: "MEZON",
+  image:File.open("public/subschools/mezon.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 9,
+  subschool_id: 13,
+  )
+StagRelation.create(
+  stag_id: 13,
+  subschool_id: 13,
+  )
+
+Subschool.create(
+  name: "トイサブ！",
+  image:File.open("public/subschools/toysub.jpeg"),
+  )
+StagRelation.create(
+  stag_id: 10,
+  subschool_id: 14,
+  )
+StagRelation.create(
+  stag_id: 12,
+  subschool_id: 14,
+  )
+StagRelation.create(
+  stag_id: 14,
+  subschool_id: 14,
   )
 
 
