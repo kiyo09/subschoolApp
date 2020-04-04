@@ -5,4 +5,8 @@ class Review < ApplicationRecord
   # }
   belongs_to :subschool
   belongs_to :user
+
+  def self.search(search)
+    Review.where(['content LIKE(?)', "%#{search}%"])
+  end
 end
