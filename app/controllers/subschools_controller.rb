@@ -49,6 +49,7 @@ class SubschoolsController < ApplicationController
     @searches = Subschool.search(params[:keyword])
     @tweetSearch = Tweet.search(params[:keyword])
     @reviewSearch = Review.search(params[:keyword])
+    @keyword = params[:keyword]
   end
 
   private

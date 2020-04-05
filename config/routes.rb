@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :stags, only: [:index, :show]
 
+  resources :chat, only: [ :show, :create]
+
 end

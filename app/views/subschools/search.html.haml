@@ -1,9 +1,9 @@
 = render "layouts/header"
 .header-leftbox__form__content
   - @searches.each do |subschool|
-    = subschool.name
+    = highlight("#{subschool.name}" , @keyword)
   - @tweetSearch.each do |tweet|
-    = tweet.tweet
+    = highlight("#{tweet.tweet}" , @keyword)
   - @reviewSearch.each do |review|
-    = review.content
+    = highlight("#{review.content}" , @keyword)
   

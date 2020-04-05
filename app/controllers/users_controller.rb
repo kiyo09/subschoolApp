@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @reviews = @user.reviews.order("id DESC").limit(3)
     @items = [] 
     @items = cookies[:recently_viewed_items].split(",") unless cookies[:recently_viewed_items].nil?
-
   end
 
   def edit
