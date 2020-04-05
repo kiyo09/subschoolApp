@@ -1,0 +1,11 @@
+%body
+  .chatPage
+    %header.header
+      .chatPartner
+       
+    .container
+      .messagesArea.messages
+        -# = render @chat_messages
+    %form.messageInputForm
+      .container
+        %input.messageInputForm_input{"data-behavior" => "room_speaker", :placeholder => "メッセージを入力...", :type => "text"}/
