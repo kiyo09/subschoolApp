@@ -27,7 +27,7 @@
     .mypage-main__subschool
       .mypage-main__subschool__name
     .mypage-main__tweet
-      %p 最新のツイート
+      %p= "#{@user.nickname}さんの最新ツイート"
       - if @user.tweets.present?
         .mypage-main__tweetBox
           - @tweets.each do |tweet|
@@ -44,7 +44,7 @@
         サブスクについてつぶやこう！
 
     .mypage-main__review
-      %P 最新のレビュー
+      %P= "#{@user.nickname}さんの最新レビュー"
       - if @user.reviews.present?
         .mypage-main__reviewBox
           - @reviews.each do |review|
