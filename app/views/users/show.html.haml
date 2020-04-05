@@ -21,7 +21,11 @@
           - if @user.id == current_user.id
             #mypage-edit プロフィールを編集
           - else
-            = link_to "messageを送る" 
+            -# = link_to "messageを送る" 
+            = form_with(url: chat_index_path, method: :post) do |chat|
+              %input{:name => "user_id", :type => "hidden", :value => "#{@user.id}"}/
+              = chat.submit 'チャットを開く', class: "chatForm_btn"
+
       .mypage-main-box__intro
         = @user.intro
     .mypage-main__subschool
