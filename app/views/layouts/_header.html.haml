@@ -4,8 +4,9 @@
   .header-leftbox
     .header-leftbox__form
       = form_with(url: search_subschools_path, local:true, method: :get, class: "search-form") do |form|
-        = form.text_field :keyword, placeholder: "検索する", class: "search-input"
-        = form.submit "検索", class: "search-btn"
+        .header-leftbox__form__set
+          = form.text_field :keyword, placeholder: "検索する", class: "search-input"
+          = form.submit "検索", class: "search-btn"
 
   .header-leftbox__tag
     = link_to "タグ検索", stags_path
