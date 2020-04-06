@@ -1,3 +1,58 @@
 = render "layouts/header"
-  
+.top  
+  .top-content
+    .top-content__box
+      .top-content__box__title
+        %p 新しいサブスクと出会おう
+      .top-content__box__image
+      .top-content__box__text
+        %p このアプリでは様々なサブスクを見ることができます。
+        %p ヘッダーから検索、タグジャンルから検索が可能です。
+        .top-content__box__text__img
+          .stag-topIndex
+            ジャンル一覧
+            .stag-topIndex__box
+              - @stags.each do |stag|
+                .stag-topIndex__box__name
+                  = link_to stag_path(stag.id) do
+                    = stag.tag
+            .stag-topIndex__tag
+            タグ一覧
+            .stag-topIndex__box
+              - @stagsType.each do |stag|
+                .stag-topIndex__box__name
+                  = link_to stag_path(stag.id) do
+                    = stag.tag
 
+    .top-content__enjoy
+      .top-content__enjoy__title
+        %p 新しい楽しみ方を探そう
+      .top-content__enjoy__image
+      .top-content__enjoy__text
+        %p レビュー機能、ツイート機能でみんなの楽しみ方を参考にサブスクを楽しみ尽くそう！
+        %p レビュー、ツイートも検索できます
+        .top-content__enjoy__text__img
+          .top-content__enjoy__text__img__review
+            %p レビュー
+            .top-content__enjoy__text__img__review__detail
+              
+          .top-content__enjoy__text__img__tweet
+            %P ツイート
+            .top-content__enjoy__text__img__tweet__detail
+
+          .top-content__enjoy__text__img__comment
+            %p コメント
+            .top-content__enjoy__text__img__comment__detail
+
+
+    .top-content__frend
+      .top-content__frend__title
+        %p 新しい友達を作ろう
+      .top-content__frend__image
+      .top-content__frend__text
+        %p 気になるユーザーとチャットができます
+        .top-content__frend__text__img
+    
+    .top-botton
+      Let's play
+  

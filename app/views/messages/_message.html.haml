@@ -1,0 +1,49 @@
+-# .message
+-#   %span.message__name
+-#     = image_tag message.user.image.url, size: "120x120"
+-#     = message.user.nickname
+-#   - if message.user.id == current_user.id
+-#     .message__text.message_current_user
+-#       %div= message.content
+-#   - else
+-#     .message__text
+-#       %div= message.content
+
+
+-# - if message.user.nickname == current_user.nickname
+-#   .message.messagebox_current_user
+-#     .message__box
+-#       .message__box__image
+-#         = image_tag message.user.image.url, size: "120x120"
+-#         .message__box__image__name
+-#           = message.user.nickname
+-#     .message__content.message_current_user
+-#       %div= message.content
+-# - else
+-#   .message.messagebox_user
+-#     .message__box
+-#       .message__box__image
+-#         = image_tag message.user.image.url, size: "120x120"
+-#         .message__box__image__name
+-#           = message.user.nickname
+-#     .message__text
+-#       = message.content
+
+- if message.user.nickname == current_user.nickname
+  .message.messagebox_user
+    .message__box
+      .message__box__image
+        = image_tag message.user.image.url, size: "120x120"
+        .message__box__image__name
+          = message.user.nickname
+    .message__text
+      %div= message.content
+- else
+  .message.messagebox_user
+    .message__box
+      .message__box__image
+        = image_tag message.user.image.url, size: "120x120"
+        .message__box__image__name
+          = message.user.nickname
+    .message__text
+      = message.content

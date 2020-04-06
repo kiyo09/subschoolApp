@@ -21,6 +21,7 @@
 /yarn-error.log
 
 public/uploads/*
+public/subschools/*
 /public/assets
 .byebug_history
 
