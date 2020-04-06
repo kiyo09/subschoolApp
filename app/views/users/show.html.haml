@@ -63,9 +63,35 @@
                   = date_format(review.created_at)
       - else
         サブスクを探してみよう！
+  - if @user.id == current_user.id
     .mypage-main__mail
+      %p= "#{@user.nickname}さんの最新メッセージ"
+      - if @user.messages.present?
+        .mypage-main__messegeBox
+          - @messages.each do |message|
+            .mypage-main__messegeBox__content
+              .mypage-main__messegeBox__content__detail
+                = message.content
+              .mypage-main__messegeBox__content__detailDate
+                = date_format(message.created_at)
+      - else
+        まだメッセージがありません
 
-
+  - if @user.id == current_user.id
+    .mypage-main__mail
+      %p= "#{@user.nickname}さんの最新チャット内容"
+      - if @user.rooms.present?
+        .mypage-main__messegeBox
+          - @rooms.each do |room|
+            .mypage-main__messegeBox__content
+              .mypage-main__messegeBox__content__detail
+                - room.userRooms.each do |user|
+                  = user.user.nickname
+                  = image_tag "#{user.user.image.url}"
+              .mypage-main__messegeBox__content__detailDate
+                = date_format(room.created_at)
+      - else
+        まだメッセージがありません
 
 
 
