@@ -21,6 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+![Untitled (1)](https://user-images.githubusercontent.com/60495508/78660501-2b37d500-7908-11ea-9658-88644277083d.png)
 
-![Untitled](https://user-images.githubusercontent.com/60495508/78660165-93d28200-7907-11ea-9609-777fd0690618.png)
