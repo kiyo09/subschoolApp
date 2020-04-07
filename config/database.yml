@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: subschool_production
-  username: subschool
-  password: <%= ENV['SUBSCHOOL_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
