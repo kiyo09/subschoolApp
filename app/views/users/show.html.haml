@@ -22,8 +22,10 @@
             #mypage-edit プロフィールを編集
           - else
             -# = link_to "messageを送る" 
+            #mypage-messege messageを送る
+            .chatform
             = form_with(url: chat_index_path, method: :post) do |chat|
-              %input{:name => "user_id", :type => "hidden", :value => "#{@user.id}"}/
+              %input{:name => "user_id", :type => "hidden", :value => "#{@user.id}", class: "chatform"}/
               = chat.submit 'チャットを開く', class: "chatForm_btn"
 
       .mypage-main-box__intro

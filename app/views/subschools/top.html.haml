@@ -32,27 +32,32 @@
         %p レビュー機能、ツイート機能でみんなの楽しみ方を参考にサブスクを楽しみ尽くそう！
         %p レビュー、ツイートも検索できます
         .top-content__enjoy__text__img
-          .top-content__enjoy__text__img__review
-            %p レビュー
-            .top-content__enjoy__text__img__review__detail
+          = form_with(url: search_subschools_path, local:true, method: :get, class: "search-form") do |form|
+            .top-content__enjoy__text__img__set
+              = form.text_field :keyword, placeholder: "検索する", class: "search-input"
+              = form.submit "検索", class: "search-btn"
+
+          -# .top-content__enjoy__text__img__review
+          -#   %p レビュー
+          -#   .top-content__enjoy__text__img__review__detail
               
-          .top-content__enjoy__text__img__tweet
-            %P ツイート
-            .top-content__enjoy__text__img__tweet__detail
+          -# .top-content__enjoy__text__img__tweet
+          -#   %P ツイート
+          -#   .top-content__enjoy__text__img__tweet__detail
 
-          .top-content__enjoy__text__img__comment
-            %p コメント
-            .top-content__enjoy__text__img__comment__detail
+          -# .top-content__enjoy__text__img__comment
+          -#   %p コメント
+          -#   .top-content__enjoy__text__img__comment__detail
 
-
-    .top-content__frend
-      .top-content__frend__title
+    .top-content__friend
+      .top-content__friend__title
         %p 新しい友達を作ろう
-      .top-content__frend__image
-      .top-content__frend__text
-        %p 気になるユーザーとチャットができます
-        .top-content__frend__text__img
+      .top-content__friend__image
+      .top-content__friend__text
+        %p マイページではツイート履歴が見れます
+        %p 気になるユーザーにチャットしてみよう
+        .top-content__friend__text__img
     
     .top-botton
-      Let's play
+      = link_to "Let's play", subschools_path
   
