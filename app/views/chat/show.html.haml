@@ -1,8 +1,9 @@
 = render "layouts/header"
        
-.container
+.contain
   .messagesArea
     .messages
+      = room.id
       = render @messages
 %form
   .messageInputForm

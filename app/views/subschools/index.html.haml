@@ -6,11 +6,11 @@
         最近見たサービス
       .main-history__boxs
         - @history.each do |it|
-          .main-history__box
+          .main-history__boxs__box
             = link_to subschool_path(it.id) do
-              .main-history__box__image
+              .main-history__boxs__box__image
                 = image_tag it.image.url, size: "300x300"
-              .main-history__box__name
+              .main-history__boxs__box__name
                 = it.name
 
   .main-content
@@ -22,30 +22,30 @@
           .main-content__box__image
             = image_tag "#{subschool.image.url}", size: "120x120"
             - if subschool.reviews.count > 1
-              .main-content__box__review
+              .main-content__box__image__review
                 #star-average{id: subschool.id}
-              .main-content__box__reviewRate
+              .main-content__box__image__reviewRate
                 = subschool.reviews.average(:rate).to_f.round(1)
-                .main-content__box__reviewCount
+                .main-content__box__image__reviewCount
                   = "#{subschool.reviews.count} reviews"
             - elsif (subschool.reviews.count === 1)
-              .main-content__box__review
+              .main-content__box__image__review
                 #star-average{id: subschool.id}
-              .main-content__box__reviewRate
+              .main-content__box__image__reviewRate
                 = subschool.reviews.average(:rate).to_f.round(1)
-              .main-content__box__reviewCount
+              .main-content__box__image__reviewCount
                 = "#{subschool.reviews.count} review"
             - else
-              .main-content__reviewComment
+              .main-content__box__image__reviewComment
                 = "まだレビューがありません"
           .main-content__box__sentence
-            .main-content__box__name
+            .main-content__box__sentence__name
               = subschool.name
-            .main-content__box__description
+            .main-content__box__sentence__description
               = subschool.description
-            .main-content__box__description__ex
+            .main-content__box__sentence__description__ex
               - subschool.stags.each do |tags|
-                .main-content__box__description__ex__tag
+                .main-content__box__sentence__description__ex__tag
                   = link_to stag_path(tags.id) do
                     = tags.tag
               :javascript
@@ -58,13 +58,3 @@
                   readOnly: true,
                   score: #{subschool.reviews.average(:rate).to_f.round(1)},
                 });
-
--# - items = []
--# - items = cookies[:recently_viewed_items].split(",") unless cookies[:recently_viewed_items].nil?
--# - items.each do |id|
--#   = item = Subschool.find(id)
-
-
--# - history = Subschool.where(id: items.id)
--# = history.name
-

@@ -31,69 +31,73 @@
       .mypage-main-box__intro
         = @user.intro
     .mypage-main__subschool
-      .mypage-main__subschool__name
-    .mypage-main__tweet
-      %p= "#{@user.nickname}さんの最新ツイート"
-      - if @user.tweets.present?
-        .mypage-main__tweetBox
-          - @tweets.each do |tweet|
-            .mypage-main__tweetBox__content
-              .mypage-main__tweetBox__content__image
-                = image_tag "#{tweet.subschool.image.url}"
-              .mypage-main__tweetBox__content__name
-                = tweet.subschool.name
-                .mypage-main__tweetBox__content__detail
-                  = tweet.tweet
-                .mypage-main__tweetBox__content__detailDate
-                  = date_format(tweet.created_at)
-      - else
-        サブスクについてつぶやこう！
+      .mypage-main__tweet
+        %p= "#{@user.nickname}さんの最新ツイート"
+        - if @user.tweets.present?
+          .mypage-main__tweetBox
+            - @tweets.each do |tweet|
+              .mypage-main__tweetBox__content
+                .mypage-main__tweetBox__content__image
+                  = image_tag "#{tweet.subschool.image.url}", size: "120x120"
+                .mypage-main__tweetBox__content__name
+                  = tweet.subschool.name
+                  .mypage-main__tweetBox__content__detail
+                    = tweet.tweet
+                  .mypage-main__tweetBox__content__detailDate
+                    = date_format(tweet.created_at)
+        - else
+          サブスクについてつぶやこう！
 
-    .mypage-main__review
-      %P= "#{@user.nickname}さんの最新レビュー"
-      - if @user.reviews.present?
-        .mypage-main__reviewBox
-          - @reviews.each do |review|
-            .mypage-main__reviewBox__content
-              .mypage-main__reviewBox__content__image
-                = image_tag "#{review.subschool.image.url}"
-              .mypage-main__reviewBox__content__name
-                = review.subschool.name
-                .mypage-main__reviewBox__content__detail
-                  = review.content
-                .mypage-main__reviewBox__content__detailDate
-                  = date_format(review.created_at)
-      - else
-        サブスクを探してみよう！
-  - if @user.id == current_user.id
-    .mypage-main__mail
-      %p= "#{@user.nickname}さんの最新メッセージ"
-      - if @user.messages.present?
-        .mypage-main__messegeBox
-          - @messages.each do |message|
-            .mypage-main__messegeBox__content
-              .mypage-main__messegeBox__content__detail
-                = message.content
-              .mypage-main__messegeBox__content__detailDate
-                = date_format(message.created_at)
-      - else
-        まだメッセージがありません
+      .mypage-main__review
+        %P= "#{@user.nickname}さんの最新レビュー"
+        - if @user.reviews.present?
+          .mypage-main__reviewBox
+            - @reviews.each do |review|
+              .mypage-main__reviewBox__content
+                .mypage-main__reviewBox__content__image
+                  = image_tag "#{review.subschool.image.url}", size: "120x120"
+                .mypage-main__reviewBox__content__name
+                  = review.subschool.name
+                  .mypage-main__reviewBox__content__detail
+                    = review.content
+                  .mypage-main__reviewBox__content__detailDate
+                    = date_format(review.created_at)
+        - else
+          サブスクを探してみよう！
 
-  - if @user.id == current_user.id
-    .mypage-main__mail
-      %p= "#{@user.nickname}さんの最新チャット内容"
-      - if @user.rooms.present?
-        .mypage-main__messegeBox
-          - @rooms.each do |room|
-            .mypage-main__messegeBox__content
-              .mypage-main__messegeBox__content__detail
-                - room.userRooms.each do |user|
-                  = user.user.nickname
-                  = image_tag "#{user.user.image.url}"
-              .mypage-main__messegeBox__content__detailDate
-                = date_format(room.created_at)
-      - else
-        まだメッセージがありません
+    -# - if @user.id == current_user.id
+    -#   .mypage-main__mail
+    -#     %p= "#{@user.nickname}さんの最新メッセージ"
+    -#     - if @user.messages.present?
+    -#       .mypage-main__messegeBox
+    -#         - @messages.each do |message|
+    -#           .mypage-main__messegeBox__content
+    -#             .mypage-main__messegeBox__content__detail
+    -#               = message.content
+    -#             .mypage-main__messegeBox__content__detailDate
+    -#               = date_format(message.created_at)
+    -# - else
+    -#   まだメッセージがありません
+
+    - if @user.id == current_user.id
+      .mypage-main__mail
+        %p= "#{@user.nickname}さんの最新チャットルーム"
+        - if @user.rooms.present?
+          .mypage-main__messegeBox
+            - @rooms.each do |room|
+              .mypage-main__messegeBox__content
+                .mypage-main__messegeBox__content__detail
+                  - room.userRooms.each do |user|
+                    = link_to user_path(user.user.id) do
+                      = user.user.nickname
+                      = image_tag "#{user.user.image.url}", size: "120x120"
+                  .mypage-main__messegeBox__content__detailDate
+                    = date_format(room.created_at)
+
+    - else
+      .mypage-main__mail
+        %p= "#{@user.nickname}さんの最新チャットルーム"
+        %p= "チャットは本人しか見れません"
 
 
 

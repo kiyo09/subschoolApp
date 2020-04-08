@@ -1,9 +1,59 @@
 = render "layouts/header"
-.header-leftbox__form__content
-  - @searches.each do |subschool|
-    = highlight("#{subschool.name}" , @keyword)
-  - @tweetSearch.each do |tweet|
-    = highlight("#{tweet.tweet}" , @keyword)
-  - @reviewSearch.each do |review|
-    = highlight("#{review.content}" , @keyword)
-  
+.search
+  .search-content
+    .search-content__searchCount
+    - if @searches.present?
+      = "#{@searches.count}件のサブスクがあります"
+    .search-content__tweetCount
+    - if @tweetSearch.present?
+      = "#{@tweetSearch.count}件の投稿があります"
+    .search-content__reviewCount
+    - if @reviewSearch.present?
+      = "#{@reviewSearch.count}件のレビューがあります"
+
+    .search-content__name
+      - @searches.each do |subschool|
+        .search-content__name__box
+          = link_to subschool_path(subschool.id) do
+            .search-content__name__box__image
+              = image_tag subschool.image.url, size: "120x120"
+            .search-content__name__box__image__title
+              = highlight("#{subschool.name}" , @keyword)
+            .search-content__name__box__tweet
+              - subschool.tweets.where('tweet LIKE(?)', "%#{@keyword}%").each do |tweet|
+                .search-content__name__box__tweet__detail
+                  .search-content__name__box__tweet__detail__name
+                    = link_to user_path(tweet.user.id) do
+                      = tweet.user.nickname
+                      = image_tag "#{tweet.user.image.url}", size: "50x50"
+                  .search-content__name__box__tweet__detail__date
+                    = date_format(tweet.created_at)
+                .search-content__name__box__tweet__detail__content
+                  = highlight("#{tweet.tweet}" , @keyword)
+            .search-content__name__box__review
+              - subschool.reviews.where('content LIKE(?)', "%#{@keyword}%").each do |review|
+                .search-content__name__box__reviewBox
+                  .search-content__name__box__reviewBox__detail
+                    .search-content__name__box__reviewBox__detail__name
+                      = link_to user_path(review.user.id) do
+                        = review.user.nickname
+                        = image_tag "#{review.user.image.url}", size: "50x50"
+                    .search-content__name__box__reviewBox__detail__rate
+                      #star-rate
+                        #star-rate{id: review.id}
+                      :javascript
+                        $('#star-rate_#{review.id}').raty({
+                          size: 36,
+                          starOff:  "#{asset_path('star-off.png')}",
+                          starOn : "#{asset_path('star-on.png')}",
+                          starHalf: "#{asset_path('star-half.png')}",
+                          half: true,
+                          readOnly: true,
+                          score: #{review.rate},
+                          });
+                      #star-rate__rate
+                        %p= review.rate
+                      .search-content__name__box__reviewBox__detail__date
+                        = date_format(review.created_at)
+                .search-content__name__box__review__detail__content
+                  = highlight("#{review.content}" , @keyword)

@@ -8,15 +8,17 @@
         = @subschool.name
       .show-content__topbox__detail__review
       - if @subschool.reviews.count > 1
-        #star-average{id: @subschool.id}
-        .show-content__topbox__detail__reviewRate
-          = @subschool.reviews.average(:rate).to_f.round(1)
+        .show-content__topbox__detail__reviewBox
+          #star-average{id: @subschool.id}
+          .show-content__topbox__detail__reviewRate
+            = @subschool.reviews.average(:rate).to_f.round(1)
         .show-content__topbox__detail__reviewCount
           = "#{@subschool.reviews.count} reviews"
       - elsif (@subschool.reviews.count === 1)
-        #star-average{id: @subschool.id}
-        .show-content__topbox__detail__reviewRate
-          = @subschool.reviews.average(:rate).to_f.round(1)
+        .show-content__topbox__detail__reviewBox
+          #star-average{id: @subschool.id}
+          .show-content__topbox__detail__reviewRate
+            = @subschool.reviews.average(:rate).to_f.round(1)
         .show-content__topbox__detail__reviewCount
           = "#{@subschool.reviews.count} review"
       - else
@@ -45,50 +47,55 @@
   .show-content__bottombox
     .show-content__bottombox__title
       Review
-    - if @subschool.reviews.present?
+    .review-form
+      = form_with( model: [@subschool, @review], local: true) do |f|
+        = f.hidden_field :subschool_id, value: @subschool.id 
+        = f.text_field :content, placeholder:"Review", required: true
+        #star.form-group
+          = f.label :rate
+          = f.hidden_field :rate, id: :review_star
+        = f.submit 'レビューする', class: "submit-btn" 
+        :javascript
+          $('#star').raty({
+            size: 36,
+            starOff: "#{asset_path('star-off.png')}",
+            starOn: "#{asset_path('star-on.png')}",
+            starHalf: "#{asset_path('star-half.png')}",
+            scoreName: 'review[rate]',
+            half: true,
+          });
+    - if @reviews.present?
       .show-review
-        - @subschool.reviews.each do |review|
-          .show-review__content
-            = review.content
-            .show-review__subcontent
-              .show-review__subcontent__image
-                = image_tag "#{review.user.image}", size: "50x50"
-              .show-review__subcontent__name
-                = review.user.nickname
-              .show-review__subcontent__star
-                %p= review.rate
-                #star-rate
-                  #star-rate{id: review.id}
-            :javascript
-              $('#star-rate_#{review.id}').raty({
-                size: 36,
-                starOff:  "#{asset_path('star-off.png')}",
-                starOn : "#{asset_path('star-on.png')}",
-                starHalf: "#{asset_path('star-half.png')}",
-                half: true,
-                readOnly: true,
-                score: #{review.rate},
-              });
+        - @reviews.each do |review|
+          = link_to user_path(review.user.id) do
+            .show-review__content
+              = review.content 
+              .show-review__subcontent
+                .show-review__subcontent__image
+                  = image_tag "#{review.user.image}", size: "50x50"
+                .show-review__subcontent__name
+                  = review.user.nickname
+                .show-review__subcontent__time
+                  = date_format(review.created_at)
+                  .show-review__subcontent__star
+                    %p= review.rate
+                    #star-rate
+                      #star-rate{id: review.id}
+                    :javascript
+                      $('#star-rate_#{review.id}').raty({
+                        size: 36,
+                        starOff:  "#{asset_path('star-off.png')}",
+                        starOn : "#{asset_path('star-on.png')}",
+                        starHalf: "#{asset_path('star-half.png')}",
+                        half: true,
+                        readOnly: true,
+                        score: #{review.rate},
+                        });
+    - else
+      .no-review
+        まだレビューがありません
   
 
-
-  .review-form
-    = form_with( model: [@subschool, @review], local: true) do |f|
-      = f.hidden_field :subschool_id, value: @subschool.id 
-      = f.text_field :content
-      #star.form-group
-        = f.label :rate
-        = f.hidden_field :rate, id: :review_star
-      = f.submit 'レビューする', class: "submit-btn" 
-      :javascript
-        $('#star').raty({
-          size: 36,
-          starOff: "#{asset_path('star-off.png')}",
-          starOn: "#{asset_path('star-on.png')}",
-          starHalf: "#{asset_path('star-half.png')}",
-          scoreName: 'review[rate]',
-          half: true,
-        });
 
   .show-content__endbox
     .show-content__endbox__title
@@ -99,21 +106,29 @@
         = tweet.text_field :tweet
         = tweet.submit '投稿する', class: "submit-btn" 
 
-    .show-content__endbox__box
-      - @subschool.tweets.each do |tweet|
-        = link_to "/subschools/#{@subschool.id}/tweets/#{tweet.id}" do
-          .show-tweet
-            .show-tweet__image
-              = image_tag "#{tweet.user.image}", size: "50x50"
-            .show-tweet__name
-              = tweet.user.nickname
+    - if @tweets.present?
+      .show-content__endbox__box
+        - @tweets.each do |tweet|
+          = link_to "/subschools/#{@subschool.id}/tweets/#{tweet.id}" do
+            .show-tweet
               .show-tweet__detail
                 .show-tweet__detail__tweet
                   = tweet.tweet
-          .show-tweet__comment
-          .show-tweet__like
-    .mypage-main__mail
-      = @recently_visit
+                  .show-tweet__detail__tweet__user
+                    .show-tweet__detail__tweet__userBox
+                      = link_to user_path(tweet.user.id) do
+                        .show-tweet__image
+                          = image_tag "#{tweet.user.image}", size: "50x50"
+                        .show-tweet__name
+                          = tweet.user.nickname
+                      .show-tweet__time
+                        = date_format(tweet.created_at)
+    - else
+      .no-tweet
+        まだ投稿がありません
+
+
+    
 
   %input{name: "subschool_id", type: "hidden", value: @subschool.id, class: 'subschool_id' }
   %input{name: "subschool_name", type: "hidden", value: @subschool.name, class: 'subschool_name' }
