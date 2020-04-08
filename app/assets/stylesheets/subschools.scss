@@ -14,12 +14,19 @@ a{
 input{
   color: black;
 }
+
+// ===============================================================
+// 検索結果
+// ===============================================================
 mark{
   background-color: #ffde3bd6;
   border-radius: 20px;
   padding: 2px;
 }
 
+// ===============================================================
+// パーツ類
+// ===============================================================
 .top-botton{
   font-size: 20px;
   font-weight: bold;
@@ -45,8 +52,9 @@ mark{
   border-radius: 20px;
 }
 
-
-
+// ===============================================================
+// ヘッダー
+// ===============================================================
 .header{
   height: 130px;
   width: 100%;
@@ -57,7 +65,7 @@ mark{
   z-index: 100;
   top: 0;
   background-color: rgb(32, 32, 32);
-  .header-name{
+  &-name{
     font-size: 40px;
     line-height: 120px;
     margin-right: 20px;
@@ -67,7 +75,7 @@ mark{
       width: 250px;
     }
     }
-  .header-leftbox{
+  &-leftbox{
     width: 20%;
     line-height: 120px;
     color: white;
@@ -77,6 +85,9 @@ mark{
     &__form{
       &__set{
         display: flex;
+        input{
+          padding: 0 10px;
+        }
         .search-btn{
           color: black;
           border-style: none;
@@ -88,19 +99,19 @@ mark{
       }
     }
   }
-  .header-leftbox__tag{
+  &-leftbox__tag{
     margin: auto 40px;
     font-size: 20px;
   }
-  .header-rightbox{
+  &-rightbox{
     font-size: 20px;
     float: right;
     display: flex;
     margin: auto 40px;
-    .header-rightbox__registar{
+    &__registar{
       margin-right: 20px;
     }
-    .header-rightbox__login{
+    &__login{
       margin-right: 40px;
     }
   }
@@ -110,9 +121,12 @@ mark{
   padding-top: 180px;
 }
 
+// ===============================================================
+// トップページ
+// ===============================================================
 .top{
-  .top-content{
-    .top-content__box{
+  &-content{
+    &__box{
         width: 100%;
         height: 100%;
         position: relative;
@@ -130,14 +144,14 @@ mark{
             font-weight: 800;
           }
         }
-        .top-content__box__image{
+        &__image{
             width: 100%;
             height: 0;
             padding-top: calc(400 / 1000 * 100%); /* calc(画像高さ ÷ 画像横幅 × 100%) */
             background: url("/subschools/sea.jpeg") center center / cover no-repeat;
             opacity: 0.7;  
           }
-        .top-content__box__text{
+        &__text{
           padding-top: 20px;
           height: 500px;
 
@@ -153,8 +167,8 @@ mark{
             .stag-topIndex{
               padding: 30px 60px;
               font-size: 25px;
-              .stag-topIndex__box{
-                .stag-topIndex__box__name{
+              &__box{
+                &__name{
                   font-size: 20px;
                   margin: 10px;
                   border-radius: 5px;
@@ -171,8 +185,8 @@ mark{
             .stag-topIndex__tag{
               padding: 0 60px 30px 60px;
               font-size: 25px;
-              .stag-topIndex__box{
-                .stag-topIndex__box__name{
+              &__box{
+                &__name{
                   font-size: 20px;
                   margin: 10px;
                   border-radius: 5px;
@@ -189,7 +203,7 @@ mark{
           }
         }
       }
-    .top-content__enjoy{
+    &__enjoy{
         width: 100%;
         height: 100%;
         position: relative;
@@ -207,14 +221,14 @@ mark{
             opacity: 1; 
           }
         }
-        .top-content__enjoy__image{
+        &__image{
             width: 100%;
             height: 0;
             opacity: 0.7;
             padding-top: calc(400 / 1000 * 100%); /* calc(画像高さ ÷ 画像横幅 × 100%) */
             background: url("/subschools/girl.jpeg") center center / cover no-repeat;
         }
-        .top-content__enjoy__text{
+        &__text{
           padding-top: 20px;
           height: 400px;
 
@@ -231,6 +245,9 @@ mark{
             &__set{
               display: flex;
               margin-top: 60px;
+              input{
+                padding: 0 10px;
+              }
               .search-btn{
                 color: black;
                 border-style: none;
@@ -243,7 +260,7 @@ mark{
           }
         }
       }
-    .top-content__friend{
+    &__friend{
       width: 100%;
       height: 100%;
       position: relative;
@@ -261,14 +278,14 @@ mark{
           color: #ffde3bd6;
         }
       }
-      .top-content__friend__image{
+      &__image{
         width: 100%;
         height: 0;
         opacity: 0.5;
         padding-top: calc(400 / 1000 * 100%); /* calc(画像高さ ÷ 画像横幅 × 100%) */
         background: url("/subschools/scape.jpeg") center center / cover no-repeat;
       }
-      .top-content__friend__text{
+      &__text{
         padding-top: 20px;
         height: 200px;
         p{
@@ -290,29 +307,30 @@ mark{
   }
 }
 
+// ===============================================================
+// サブスク一覧ページ
+// ===============================================================
 
-
-  
 .main{
   width: 100vw;
   height: 100%;
-  padding-top: 130px;
+  padding: 180px 80px 40px;
   &-history{
     &__text{
       font-size: 40px;
     }
-    .main-history__boxs{
+    &__boxs{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
     overflow-x: scroll;
     margin: 30px 0;
-    .main-history__box{
+    &__box{
       margin-left: 20px;
-      .main-history__box__image{
+      &__image{
 
       }
-      .main-history__box__name{
+      &__name{
         text-align: center;
         font-size: 30px;
       }
@@ -321,7 +339,7 @@ mark{
   }
 
 
-  .main-content{
+  &-content{
     display: block;
     margin: 0 auto;
     height: 100%;
@@ -333,40 +351,41 @@ mark{
       margin: 60px 100px;
       height: 20%;
       padding-left: 40px;
+      padding-bottom: 40px;
       display: flex;
-      .main-content__box__image{
+      &__image{
         margin-right: 40px;
         img{
           border-radius: 8px;
         }
-        .main-content__box__review{
+        &__review{
           height: 20px;
           width: 110px;
           overflow: hidden;
           text-align: center;
         }
-        .main-content__box__reviewRate{
+        &__reviewRate{
           text-align: center;
         }
-        .main-content__box__reviewCount{
+        &__reviewCount{
           text-align: center;
         }
-        .main-content__reviewComment{
+        &__reviewComment{
           width: 120px;
         }
       }
-      .main-content__box__sentence{
+      &__sentence{
         width: 100%;
-        .main-content__box__name{
+        &__name{
           font-size: 35px;
         }
-        .main-content__box__description{
+        &__description{
         
         }
-        .main-content__box__description__ex{
+        &__description__ex{
           display: flex;
           flex-wrap: wrap;
-          .main-content__box__description__ex__tag{
+          &__tag{
             font-size: 30px;
             margin: 10px;
             border-radius: 5px;
@@ -378,7 +397,7 @@ mark{
             padding: 0 1em 0 .75em;
             border-radius: 30px;
           }
-          .main-content__box__description__ex__star{
+          &__star{
             margin-right: 40px;
           }
         }
@@ -387,42 +406,49 @@ mark{
   }
 }
 
+// ===============================================================
+// サブスク詳細ページ
+// ===============================================================
+
 
 .show-content{
   width: 100%;
-  height: 100vh;
-  padding: 20px;
-  padding-top: 130px;
-  .show-content__topbox{
+  padding: 80px;
+  padding-top: 200px;
+  &__topbox{
     margin: 20px;
     display: flex;
-    .show-content__topbox__image{
+    &__image{
       margin-right: 20px;
       img{
       border-radius: 10px;
       }
     }
-    .show-content__topbox__detail{
+    &__detail{
 
-      .show-content__topbox__detail__name{
+      &__name{
         font-size: 45px;
       }
-      .show-content__topbox__detail__review{
-        display: flex;
-        .show-content__topbox__detail__reviewRate{
-          margin-left: 10px;
-          margin-right: 20px;
-
+      &__review{
+        &Box{
+          display: flex;
+          .show-content__topbox__detail__reviewRate{
+            margin-left: 10px;
+            margin-right: 20px;
+          }
+        }
+        &Count{
+          margin-left: 30px;
         }
       }
-      .show-content__topbox__detail__description{
+      &__description{
         font-size: 30px;
 
       }
       .show-content__tags{
         display: flex;
         flex-wrap: wrap;
-        .show-content__tags__tag{
+        &__tag{
           font-size: 30px;
           margin: 10px;
           border-radius: 5px;
@@ -435,10 +461,10 @@ mark{
           border-radius: 30px;
 
         }
-        .show-content__tags__star{
+        &__star{
 
         }
-        .show-content__tags__like{
+        &__like{
 
         }
         }
@@ -453,13 +479,21 @@ mark{
     }
 
     .show-review{
+      padding: 20px 50px;
       &__content{
         padding: 10px;
         height: 80px;
         border: 1px solid;
         .show-review__subcontent{
+          width: 30%;
           display: flex;
+          justify-content: space-around;
           float: right;
+          &__image{
+            img{
+              border-radius: 60px;
+            }
+          }
           &__name{
             margin-right: 30px;
           }
@@ -482,18 +516,47 @@ mark{
   }
 }
 
+.review-form{
+  text-align: center;
+  margin-bottom: 40px;
+  #review_content{
+    border-style: none;
+    height: 30px;
+    width: 460px;
+    font-size: 20px;
+    padding-left: 10px;
+    }
+  .form-group{
+    width: 150px;
+    height: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    margin: 10px auto;
+  }
+  .submit-btn{
+    height: 30px;
+    width: 110px;
+    border-style: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
 
 .show-content__endbox{
-
+  padding: 40px 0;
   .show-content__endbox__title{
     font-size: 30px;
     margin-bottom: 20px;
   }
   .show-content__endbox__box{
-
+    padding: 20px 50px 40px;
+    height: 400px;
+    overflow: scroll;
     .show-tweet{
       padding: 10px;
-      height: 80px;
+      height: 100px;
       border: 1px solid;
       .show-tweet__image{
 
@@ -502,16 +565,137 @@ mark{
 
       }
         .show-tweet__detail{
-
           .show-tweet__detail__tweet{
-
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .show-tweet__detail__tweet__user{
+              width: 34%;
+              display: flex;
+              justify-content: space-around;
+              &Box{
+                display: flex;
+                .show-tweet__image{
+                  img{
+                    margin-right: 10px;
+                    border-radius: 60px;
+                  }
+                }
+              }
+            }
           }
         }
-      .show-tweet__comment{
+    }
+  }
+}
+.no-tweet, .no-review{
+  text-align: center;
+}
 
-      }
-      .show-tweet__like{
+.show-tweet__form{
+  text-align: center;
+  margin-bottom: 40px;
+  form{
+    display: flex;
+    flex-flow: column;
+    #tweet_tweet{
+      border-style: none;
+      height: 30px;
+      width: 460px;
+      margin: 0 auto;
+      font-size: 20px;
+      padding-left: 10px;
+    }
+    .submit-btn{
+      height: 30px;
+      width: 110px;
+      margin: 10px auto;
+      border-style: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+}
 
+// ===============================================================
+// サブスク検索結果ページ
+// ===============================================================
+
+
+.search{
+  padding-top: 130px;
+  &-content{
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    &__name{
+      display: flex;
+      flex-flow: wrap;
+      justify-content: space-between;
+      &__box{
+        width: 39%;
+        margin: 50px;
+        &__image{
+          &__title{
+            font-size: 25px;
+          }
+        }
+        &__tweet{
+          margin: 50px 20px;
+          &__detail{
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            &__name{
+            img{
+              border-radius: 60px;
+              }
+            }
+            &__date{
+              line-height: 90px;
+              height: 20px;
+            }
+          }
+        }
+        &__review{
+          &Box{
+            &__detail{
+              margin: 30px;
+              display: flex;
+              justify-content: center;
+              &__name{
+                img{
+                  border-radius: 60px;
+                }
+              }
+              &__rate{
+                display: flex;
+                #star-rate{
+                  line-height: 50px;
+                  margin: 0 20px;
+                  width: 110px;
+                  height: 30px;
+                  overflow: hidden;
+                  &__rate{
+                    line-height: 47px;
+                    P{
+                      margin: 0;
+                      padding: 0;
+                    }
+                  }
+                }
+              }
+              &__date{
+                line-height: 45px;
+                margin-left: 20px;
+              }
+            }
+          }
+          &__detail__content{
+            margin-bottom: 60px;
+          }
+        }
       }
     }
   }

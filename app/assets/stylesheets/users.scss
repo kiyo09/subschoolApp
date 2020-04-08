@@ -57,63 +57,89 @@
       }
     }
     .mypage-main__subschool{
-      .mypage-main__subschool__name{
+      display: flex;
+      justify-content: space-around;
+      .mypage-main__tweet{
+        margin: 40px 0;
+        p{
+          font-size: 30px;
+        }
+        &Box{
+          font-size: 20px;
+          margin-top: 20px;
+          .mypage-main__tweetBox__content{
+            display: flex;
+            margin-bottom: 20px;
+            .mypage-main__tweetBox__content__image{
+              img{
+                margin-right: 20px;
+              }
+            }
+            .mypage-main__tweetBox__content__name{
+              
+              .mypage-main__mail__tweetBox__detail{
+
+              }
+              .mypage-main__mail__tweetBox__detailDate{
+
+              }
+            }
+          }
+        }
       }
-     }
-    .mypage-main__tweet{
-      margin: 40px 0;
-      p{
-        font-size: 30px;
-      }
-      &Box{
-        font-size: 20px;
-        margin-top: 20px;
-        .mypage-main__tweetBox__content{
-          display: flex;
-          margin-bottom: 20px;
-          .mypage-main__tweetBox__content__image{
+      .mypage-main__review{
+        margin: 40px;
+        p{
+          font-size: 30px;
+        }
+        .mypage-main__reviewBox{
+          font-size: 20px;
+          margin-top: 20px;
+          .mypage-main__reviewBox__content{
+            display: flex;
+            margin-bottom: 20px;
+          .mypage-main__reviewBox__content__image{
             img{
               margin-right: 20px;
             }
           }
-          .mypage-main__tweetBox__content__name{
-            
-            .mypage-main__mail__tweetBox__detail{
+          .mypage-main__reviewBox__content__name{
+
+            .mypage-main__reviewBox__content__detail{
 
             }
-            .mypage-main__mail__tweetBox__detailDate{
+            .mypage-main__reviewBox__content__detailDate{
 
             }
           }
+        }
         }
       }
     }
-    .mypage-main__review{
-      margin: 40px 0;
+    .mypage-main__mail{
+      margin: 40px;
       p{
         font-size: 30px;
       }
-      .mypage-main__reviewBox{
+      .mypage-main__messegeBox{
         font-size: 20px;
         margin-top: 20px;
-        .mypage-main__reviewBox__content{
+        display: flex;
+        justify-content: space-around;
+        &__content{
           display: flex;
           margin-bottom: 20px;
-        .mypage-main__reviewBox__content__image{
-          img{
-            margin-right: 20px;
+          &__detail{
+            font-size: 20px;
+            img{
+              border-radius: 60px;
+            }
+            &Date{
+              font-size: 20px;
+              text-align: center;
+            }
           }
         }
-        .mypage-main__reviewBox__content__name{
-
-          .mypage-main__reviewBox__content__detail{
-
-          }
-          .mypage-main__reviewBox__content__detailDate{
-
-          }
-        }
-      }
       }
     }
   }

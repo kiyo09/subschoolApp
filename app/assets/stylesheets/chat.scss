@@ -49,6 +49,17 @@
 //   }
 // }
 
+.contain{
+  padding: 130px 100px 30px;
+  .messagesArea {
+      overflow: scroll;
+      height: 72vh;
+      padding: 40px;
+      .message {
+        margin-top: 24px;
+      }
+    }
+}
 .message{
   display: flex;
   &__box{
@@ -103,6 +114,22 @@
   }
 }
 
+form{
+  .messageInputForm{
+    .container{
+      text-align: center;
+      input{
+        border-style: none;
+        height: 40px;
+        width: 50%;
+        padding-left: 10px;
+        border-radius: 60px;
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
 
 .messagebox_current_user{
   display: flex;
@@ -111,3 +138,4 @@
 .message_current_user{
   background-color: #ffde3bd6;
 }
+
