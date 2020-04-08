@@ -27,6 +27,8 @@ class SubschoolsController < ApplicationController
     @subschool = Subschool.find(params[:id])
     @review = Review.new
     @tweet = Tweet.new
+    @reviews = @subschool.reviews.order("created_at DESC")
+    @tweets = @subschool.tweets.order("created_at DESC")
   end
 
   def edit
