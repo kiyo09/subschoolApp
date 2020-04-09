@@ -21,6 +21,7 @@ class ChatController < ApplicationController
     room = Room.find_by(id: params[:id])
     # @user_room = room.user_rooms.where.not(user_id: current_user.id).first.user
     @messages = Message.where(room: room).order(:created_at)
+
   end
 
 end
