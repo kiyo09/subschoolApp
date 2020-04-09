@@ -37,14 +37,15 @@
           .mypage-main__tweetBox
             - @tweets.each do |tweet|
               .mypage-main__tweetBox__content
-                .mypage-main__tweetBox__content__image
-                  = image_tag "#{tweet.subschool.image.url}", size: "120x120"
-                .mypage-main__tweetBox__content__name
-                  = tweet.subschool.name
-                  .mypage-main__tweetBox__content__detail
-                    = tweet.tweet
-                  .mypage-main__tweetBox__content__detailDate
-                    = date_format(tweet.created_at)
+                = link_to subschool_path(tweet.subschool.id) do
+                  .mypage-main__tweetBox__content__image
+                    = image_tag "#{tweet.subschool.image.url}", size: "120x120"
+                  .mypage-main__tweetBox__content__name
+                    = tweet.subschool.name
+                    .mypage-main__tweetBox__content__detail
+                      = tweet.tweet
+                    .mypage-main__tweetBox__content__detailDate
+                      = date_format(tweet.created_at)
         - else
           サブスクについてつぶやこう！
 
@@ -54,14 +55,29 @@
           .mypage-main__reviewBox
             - @reviews.each do |review|
               .mypage-main__reviewBox__content
-                .mypage-main__reviewBox__content__image
-                  = image_tag "#{review.subschool.image.url}", size: "120x120"
-                .mypage-main__reviewBox__content__name
-                  = review.subschool.name
-                  .mypage-main__reviewBox__content__detail
-                    = review.content
-                  .mypage-main__reviewBox__content__detailDate
-                    = date_format(review.created_at)
+                = link_to subschool_path(review.subschool.id) do
+                  .mypage-main__reviewBox__content__image
+                    = image_tag "#{review.subschool.image.url}", size: "120x120"
+                  .mypage-main__reviewBox__content__name
+                    = review.subschool.name
+                    .mypage-main__reviewBox__content__detail
+                      = review.content
+                    .mypage-main__reviewBox__content__detailReview
+                      #star-rate
+                        #star-rate{id: review.id}
+                      :javascript
+                        $('#star-rate_#{review.id}').raty({
+                          size: 36,
+                          starOff:  "#{asset_path('star-off.png')}",
+                          starOn : "#{asset_path('star-on.png')}",
+                          starHalf: "#{asset_path('star-half.png')}",
+                          half: true,
+                          readOnly: true,
+                          score: #{review.rate},
+                          });
+                      = review.rate
+                    .mypage-main__reviewBox__content__detailDate
+                      = date_format(review.created_at)
         - else
           サブスクを探してみよう！
 
