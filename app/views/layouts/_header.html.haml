@@ -1,7 +1,7 @@
 .header
   .header-name
     = link_to subschools_path do
-      = image_tag asset_path('subschools/mainIcon.jpeg')
+      = image_tag ('mainIcon.jpeg')
   .header-leftbox
     .header-leftbox__form
       = form_with(url: search_subschools_path, local:true, method: :get, class: "search-form") do |form|
