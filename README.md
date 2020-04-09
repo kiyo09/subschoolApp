@@ -1,25 +1,61 @@
 # README
+## アプリケーション概要
+サブスクリプションのレビュー機能付きSNSアプリを開発しました
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TOPページ
 
-Things you may want to cover:
+[![Image from Gyazo](https://i.gyazo.com/bf9d612cb24c9f4990444964e8db7f39.jpg)](https://gyazo.com/bf9d612cb24c9f4990444964e8db7f39)
 
-* Ruby version
+## このアプリでできること
 
-* System dependencies
+このアプリでは主に三つできることがあります。　　
 
-* Configuration
+#### １、新しいサブスクリプションに出会う
 
-* Database creation
+       サブスクリプションをタグなどで検索することが出来ます。
 
-* Database initialization
+#### ２、新しい楽しみ方を発見する
 
-* How to run the test suite
+       既に利用しているサブスクリプションについても他ユーザーのレビュー、ツイート機能でどのように楽しんでいるのか、新しい楽しみ方を発見することが出来ます。
 
-* Services (job queues, cache servers, search engines, etc.)
+#### ３、新しい友達を作る
 
-* Deployment instructions
+       同じような趣味、楽しみ方のユーザーとチャットしてコミュニケーションが取れます。
+       
+## TOPページ　スクロール
+[![Image from Gyazo](https://i.gyazo.com/29eba0fe15802b660fa03b47fd0d0773.gif)](https://gyazo.com/29eba0fe15802b660fa03b47fd0d0773)
+
+## 機能一覧
+●ユーザー登録、ログイン機能(ウィザード形式)
+
+●商品出品機能
+
+●商品購入機能
+
+●クレジットカード登録機能(PayJP)
+
+# 使用技術
+### ■言語
+バックエンド
+Ruby 2.5.1
+
+フロントエンド
+jquery-rails 4.3.5
+
+### ◼︎フレームワーク
+Ruby on Rails 5.2.4.1
+
+### ◼︎データベース
+MySQL 0.5.3
+
+### ◼︎インフラ
+AWS EC2
+
+AWS S3
+
+### デプロイ
+Capistranoによる自動デプロイ
+
 
 ![Untitled (1)](https://user-images.githubusercontent.com/60495508/78660501-2b37d500-7908-11ea-9658-88644277083d.png)
 
