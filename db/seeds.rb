@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 # タグジャンル 1~11
 Stag.create(tag: "飲食")
 Stag.create(tag: "音楽")
@@ -30,7 +29,7 @@ Stag.create(tag: "無料お試しあり")
 # サブスクと関連タグ
 Subschool.create(
   name: "amazon prime video",
-  image:File.open("public/subschools/amazon.png"),
+  image:File.open("app/assets/images/subschools/amazon.png"),
   )
 StagRelation.create(
   stag_id: 3,
@@ -47,7 +46,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "Netflix",
-  image:File.open("public/subschools/Netflix_icon.png"),
+  image:File.open("app/assets/images/subschools/Netflix_icon.png"),
   )
 StagRelation.create(
   stag_id: 3,
@@ -65,7 +64,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "Spotify",
-  image:File.open("public/subschools/Spotify.png"),
+  image:File.open("app/assets/images/subschools/Spotify.png"),
   )
 StagRelation.create(
   stag_id: 2,
@@ -86,7 +85,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "Apple Music",
-  image:File.open("public/subschools/AppleMusic.png"),
+  image:File.open("app/assets/images/subschools/AppleMusic.png"),
   )
 StagRelation.create(
   stag_id: 2,
@@ -108,7 +107,7 @@ StagRelation.create(
 # ここから続き
 Subschool.create(
   name: "Kindle Unlimited",
-  image:File.open("public/subschools/Kindle.jpeg"),
+  image:File.open("app/assets/images/subschools/Kindle.jpeg"),
   )
 StagRelation.create(
   stag_id: 4,
@@ -129,7 +128,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "dマガジン",
-  image:File.open("public/subschools/dmagazin.jpeg"),
+  image:File.open("app/assets/images/subschools/dmagazin.jpeg"),
   )
 StagRelation.create(
   stag_id: 4,
@@ -150,7 +149,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "楽天マガジン",
-  image:File.open("public/subschools/Rmagazin.jpeg"),
+  image:File.open("app/assets/images/subschools/Rmagazin.jpeg"),
   )
 StagRelation.create(
   stag_id: 4,
@@ -171,7 +170,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "Nintendo Switch Online",
-  image:File.open("public/subschools/Nintendo.jpeg"),
+  image:File.open("app/assets/images/subschools/Nintendo.jpeg"),
   )
 StagRelation.create(
   stag_id: 5,
@@ -192,7 +191,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "always LUNCH",
-  image:File.open("public/subschools/LUNCH.jpeg"),
+  image:File.open("app/assets/images/subschools/LUNCH.jpeg"),
   )
 StagRelation.create(
   stag_id: 1,
@@ -206,7 +205,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "ゼロcafe",
-  image:File.open("public/subschools/zerocafe.jpeg"),
+  image:File.open("app/assets/images/subschools/zerocafe.jpeg"),
   )
 StagRelation.create(
   stag_id: 1,
@@ -219,7 +218,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "野郎ラーメン",
-  image:File.open("public/subschools/野郎ラーメン.jpeg"),
+  image:File.open("app/assets/images/subschools/野郎ラーメン.jpeg"),
   )
 StagRelation.create(
   stag_id: 1,
@@ -232,7 +231,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "MECHAKARI",
-  image:File.open("public/subschools/metyakari.jpeg"),
+  image:File.open("app/assets/images/subschools/metyakari.jpeg"),
   )
 StagRelation.create(
   stag_id: 8,
@@ -245,7 +244,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "MEZON",
-  image:File.open("public/subschools/mezon.jpeg"),
+  image:File.open("app/assets/images/subschools/mezon.jpeg"),
   )
 StagRelation.create(
   stag_id: 9,
@@ -258,7 +257,7 @@ StagRelation.create(
 
 Subschool.create(
   name: "トイサブ！",
-  image:File.open("public/subschools/toysub.jpeg"),
+  image:File.open("app/assets/images/subschools/toysub.jpeg"),
   )
 StagRelation.create(
   stag_id: 10,
